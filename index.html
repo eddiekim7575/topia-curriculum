@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고등 커리큘럼 | TOPIA어학원</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6.5 – CSS CDN (공유 시에도 아이콘 정상 표시) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --red:        #8B1515;
+            --red-dark:   #6B0F0F;
+            --red-mid:    #A01818;
+            --red-light:  #FDF1F1;
+            --gold:       #C9A227;
+            --gold-light: #F5E9C1;
+            --dark:       #1C1C1C;
+            --mid:        #3E3E3E;
+            --soft:       #717171;
+            --border:     #E3E3E3;
+            --bg:         #F7F6F4;
+            --white:      #FFFFFF;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        header { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 28px; height: 76px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-weight: 900; font-size: 1.6rem; color: var(--red); letter-spacing: -1px; text-decoration: none; }
+        .logo span { font-weight: 500; font-size: 1.05rem; color: var(--dark); margin-left: 5px; letter-spacing: 0; }
+        nav a { text-decoration: none; font-size: 0.98rem; font-weight: 500; color: var(--soft); margin-left: 36px; transition: color .2s; }
+        nav a:hover { color: var(--red); }
+        nav a.active { color: var(--red); font-weight: 700; border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+
+        /* ─── HERO ─── */
+        .hero { position: relative; height: 360px; overflow: hidden; background: var(--dark); }
+        .hero img { width: 100%; height: 100%; object-fit: cover; opacity: 0.42; }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: linear-gradient(160deg, rgba(28,28,28,0.25), rgba(139,21,21,0.4));
+        }
+        .hero-label { font-size: 0.82rem; font-weight: 700; letter-spacing: 5px; color: var(--gold-light); margin-bottom: 18px; text-transform: uppercase; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); color: #fff; font-weight: 900; text-shadow: 0 3px 20px rgba(0,0,0,0.45); }
+
+        /* ─── TAB BAR ─── */
+        .tab-bar { background: var(--white); border-bottom: 1px solid var(--border); }
+        .tab-inner { max-width: 860px; margin: 0 auto; padding: 28px 24px; display: flex; gap: 16px; justify-content: center; }
+        .tab-btn {
+            flex: 1; max-width: 260px; padding: 16px 28px; border-radius: 100px;
+            border: 1.5px solid var(--border); background: var(--white);
+            font-size: 1rem; font-weight: 500; color: var(--soft);
+            text-align: center; cursor: pointer; text-decoration: none; transition: all .25s;
+        }
+        .tab-btn:hover { border-color: var(--red); color: var(--red); }
+        .tab-btn.active { background: var(--red); border-color: var(--red); color: #fff; font-weight: 700; box-shadow: 0 6px 22px rgba(139,21,21,.28); }
+
+        /* ─── SECTION ─── */
+        .section { padding: 100px 28px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-alt { background: var(--bg); }
+
+        .sec-label { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+        .sec-title { font-size: clamp(1.75rem, 3.2vw, 2.55rem); font-weight: 900; color: var(--dark); line-height: 1.3; margin-bottom: 18px; letter-spacing: -0.5px; }
+        .sec-sub { font-size: 1.08rem; color: var(--soft); max-width: 580px; line-height: 1.8; }
+        .sec-header { text-align: center; margin-bottom: 64px; }
+        .sec-header .sec-sub { margin: 0 auto; }
+
+        .gold-line { width: 52px; height: 3px; background: var(--gold); border-radius: 2px; margin: 22px auto 0; }
+
+        /* ─── INTRO ─── */
+        .intro-box { max-width: 820px; margin: 0 auto; text-align: center; }
+        .intro-badge {
+            display: inline-flex; align-items: center; gap: 9px;
+            background: var(--red-light); border: 1px solid rgba(139,21,21,.18); color: var(--red);
+            font-size: 0.88rem; font-weight: 700; letter-spacing: 2.5px;
+            padding: 10px 26px; border-radius: 100px; margin-bottom: 30px; text-transform: uppercase;
+        }
+        .intro-headline { font-size: clamp(2rem, 4.5vw, 3.1rem); font-weight: 900; line-height: 1.35; letter-spacing: -1px; color: var(--dark); margin-bottom: 26px; }
+        .intro-headline em { color: var(--red); font-style: normal; }
+        .intro-body { font-size: 1.12rem; color: var(--mid); line-height: 2; margin-bottom: 44px; }
+
+        /* Quote */
+        .quote-block {
+            background: linear-gradient(135deg, var(--red-mid), var(--red-dark));
+            border-radius: 22px; padding: 44px 52px; color: #fff; text-align: left; position: relative; overflow: hidden;
+        }
+        .quote-block::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 160px; color: rgba(255,255,255,0.18); position: absolute; top: -30px; left: 20px; line-height: 1; pointer-events: none; }
+        .quote-block p { font-size: 1.2rem; font-weight: 500; line-height: 2; position: relative; z-index: 1; }
+        .quote-block strong { font-weight: 800; }
+        .quote-block .quote-sub { margin-top: 16px; font-size: 0.95rem; color: rgba(255,255,255,.6); position: relative; z-index: 1; }
+
+        /* ─── STAT STRIP ─── */
+        .stat-strip {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+            background: var(--white); box-shadow: 0 4px 24px rgba(0,0,0,.07); margin-bottom: 64px;
+        }
+        .stat-item { padding: 38px 28px; text-align: center; border-right: 1px solid var(--border); transition: background .2s; }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:hover { background: var(--red-light); }
+        .stat-icon { width: 60px; height: 60px; border-radius: 16px; background: var(--red-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.55rem; color: var(--red); }
+        .stat-num { font-size: 2.1rem; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 8px; letter-spacing: -1px; }
+        .stat-label { font-size: 0.98rem; color: var(--soft); font-weight: 500; }
+
+        /* ─── DUAL TRACK ─── */
+        .dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        .track-card {
+            border-radius: 22px; overflow: hidden; box-shadow: 0 4px 28px rgba(0,0,0,.08);
+            border: 1px solid var(--border); background: var(--white);
+            display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s;
+        }
+        .track-card:hover { transform: translateY(-7px); box-shadow: 0 20px 48px rgba(0,0,0,.13); }
+        .track-head { padding: 30px 38px; display: flex; align-items: center; gap: 18px; }
+        .track-head.blue { background: #1A2B44; }
+        .track-head.red  { background: var(--red); }
+        .track-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; font-size: 1.55rem; color: #fff; flex-shrink: 0; }
+        .track-head-text .tag { font-size: 0.77rem; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,.6); text-transform: uppercase; margin-bottom: 5px; }
+        .track-head-text h4 { font-size: 1.3rem; font-weight: 800; color: #fff; }
+        .track-body { padding: 34px 38px; flex: 1; }
+        .track-motto { font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 26px; padding-bottom: 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 9px; }
+        .track-motto i { color: var(--red); }
+        .check-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .check-list li { display: flex; gap: 16px; font-size: 1rem; color: var(--mid); line-height: 1.7; }
+        .check-list li .ci { width: 26px; height: 26px; border-radius: 8px; background: var(--red-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .check-list li .ci i { font-size: 0.72rem; color: var(--red); }
+        .check-list li strong { color: var(--dark); font-weight: 700; }
+
+        .dual-connector { display: flex; align-items: center; justify-content: center; margin-top: 32px; }
+        .connector-pill {
+            background: linear-gradient(135deg, #1A2B44, var(--red)); color: #fff;
+            font-size: 0.95rem; font-weight: 700; padding: 14px 30px; border-radius: 100px;
+            display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+        }
+
+        /* ─── TABLE ─── */
+        .tbl-wrap { background: var(--white); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 18px rgba(0,0,0,.06); }
+        table { width: 100%; border-collapse: collapse; }
+        thead tr { background: var(--dark); }
+        thead th { padding: 20px 22px; font-size: 0.92rem; font-weight: 700; color: rgba(255,255,255,.82); letter-spacing: 0.5px; text-align: left; }
+        tbody tr { border-bottom: 1px solid var(--border); transition: background .2s; }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:hover { background: var(--bg); }
+        tbody td { padding: 22px 22px; font-size: 1rem; color: var(--mid); vertical-align: middle; }
+        tbody td:first-child { font-weight: 800; color: var(--dark); font-size: 1.02rem; }
+        .grade-cell { display: flex; flex-direction: column; gap: 4px; }
+        .grade-cell .grade-num { font-size: 1.5rem; font-weight: 900; color: var(--red); letter-spacing: -1px; line-height: 1; }
+        .grade-cell .grade-class { font-size: 0.85rem; font-weight: 700; color: var(--soft); letter-spacing: 0.5px; }
+        .grade-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 0.9rem; font-weight: 700; padding: 6px 16px; border-radius: 100px; background: var(--red-light); color: var(--red); }
+        .hours-badge { font-size: 1.4rem; font-weight: 900; color: var(--red); }
+        .sub-note { font-size: 0.9rem; color: var(--soft); margin-top: 6px; display: block; }
+
+        /* ─── TIME CARDS ─── */
+        .timetable-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 22px; }
+        .time-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,.05); transition: all .25s; }
+        .time-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); transform: translateY(-3px); }
+        .time-card-head { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); }
+        .time-card-head .grade-label { font-size: 1rem; font-weight: 700; letter-spacing: 2.5px; color: var(--red); text-transform: uppercase; margin-bottom: 6px; }
+        .time-card-head h4 { font-size: 1.18rem; font-weight: 800; color: var(--dark); }
+        .time-card-body { padding: 22px 28px; }
+        .time-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+        .time-row:last-child { border-bottom: none; }
+        .time-day { font-size: 0.95rem; color: var(--soft); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .time-day i { color: var(--red); font-size: 0.9rem; }
+        .time-val { font-size: 1rem; font-weight: 700; color: var(--dark); }
+
+        .info-box { background: #FFFDF4; border: 1px solid #E8D99A; border-left: 4px solid var(--gold); border-radius: 12px; padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start; font-size: 1rem; color: var(--mid); margin-top: 22px; line-height: 1.8; }
+        .info-box i { color: var(--gold); margin-top: 3px; flex-shrink: 0; font-size: 1.05rem; }
+
+        /* ─── RESULTS ─── */
+        .result-cta { background: linear-gradient(135deg, #141414 0%, #2C1010 100%); border-radius: 26px; padding: 64px 52px; text-align: center; position: relative; overflow: hidden; }
+        .result-cta::before { content: ''; position: absolute; top: -100px; right: -100px; width: 360px; height: 360px; border-radius: 50%; background: rgba(139,21,21,.22); }
+        .result-cta::after  { content: ''; position: absolute; bottom: -70px; left: -70px; width: 240px; height: 240px; border-radius: 50%; background: rgba(201,162,39,.1); }
+        .result-cta h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: 14px; position: relative; z-index: 1; letter-spacing: -0.5px; }
+        .result-cta p { font-size: 1.05rem; color: rgba(255,255,255,.58); margin-bottom: 40px; position: relative; z-index: 1; }
+        .result-btns { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; position: relative; z-index: 1; }
+        .btn-outline-white { display: inline-flex; align-items: center; gap: 11px; padding: 17px 30px; border: 1.5px solid rgba(255,255,255,.35); background: rgba(255,255,255,.07); color: #fff; border-radius: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all .25s; }
+        .btn-outline-white:hover { background: rgba(255,255,255,.17); border-color: rgba(255,255,255,.65); }
+        .btn-gold { display: inline-flex; align-items: center; gap: 11px; padding: 17px 30px; background: var(--gold); color: #1C1C1C; border-radius: 14px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: all .25s; }
+        .btn-gold:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(201,162,39,.4); }
+
+        /* ─── RESULT CARDS ─── */
+        .result-btns { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; position: relative; z-index: 1; }
+        .btn-result-card { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; text-decoration: none; transition: all .3s; border: 1.5px solid rgba(255,255,255,.25); background: rgba(255,255,255,.07); max-width: 260px; flex: 1; }
+        .btn-result-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.4); border-color: rgba(255,255,255,.5); }
+        .btn-result-card img { width: 100%; height: 180px; object-fit: cover; object-position: top; display: block; }
+        .btn-result-card .btn-result-label { display: flex; align-items: center; gap: 10px; padding: 16px 20px; font-size: 0.95rem; font-weight: 700; color: #fff; }
+        .btn-result-card--gold { border-color: rgba(201,162,39,.5); background: rgba(201,162,39,.12); }
+        .btn-result-card--gold .btn-result-label { color: var(--gold); }
+
+        /* ─── SPECIALTY ─── */
+        .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+        .spec-card { background: var(--white); border: 1px solid var(--border); border-radius: 22px; padding: 40px 34px; transition: all .3s; position: relative; overflow: hidden; }
+        .spec-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .35s; }
+        .spec-card:hover { box-shadow: 0 14px 40px rgba(0,0,0,.1); transform: translateY(-5px); }
+        .spec-card:hover::after { transform: scaleX(1); }
+        .spec-icon { width: 62px; height: 62px; border-radius: 16px; background: var(--red-light); display: flex; align-items: center; justify-content: center; font-size: 1.55rem; color: var(--red); margin-bottom: 24px; }
+        .spec-card h3 { font-size: 1.22rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+        .spec-card p { font-size: 1rem; color: var(--soft); line-height: 1.9; }
+
+        /* ─── REVIEWS ─── */
+        .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+        .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 22px; padding: 36px 30px; display: flex; flex-direction: column; gap: 18px; transition: all .3s; box-shadow: 0 2px 14px rgba(0,0,0,.05); }
+        .review-card:hover { box-shadow: 0 14px 36px rgba(0,0,0,.1); transform: translateY(-5px); }
+        .stars { display: flex; gap: 4px; }
+        .stars i { color: var(--gold); font-size: 1rem; }
+        .review-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--dark); }
+        .review-card p { font-size: 0.98rem; color: var(--soft); line-height: 1.9; flex: 1; }
+        .reviewer { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--border); }
+        .reviewer-avatar { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #fff; flex-shrink: 0; }
+        .reviewer-name { font-size: 0.97rem; font-weight: 700; color: var(--dark); }
+        .reviewer-role { font-size: 0.84rem; color: var(--soft); margin-top: 2px; }
+
+        /* Sub headings for table sections */
+        .sub-heading { font-size: 1.22rem; font-weight: 800; color: var(--dark); margin-bottom: 22px; display: flex; align-items: center; gap: 11px; }
+        .sub-heading i { color: var(--red); font-size: 1.1rem; }
+
+        /* ─── FOOTER ─── */
+        footer { background: #111; color: rgba(255,255,255,.48); padding: 60px 28px 36px; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.09); margin-bottom: 28px; }
+        .footer-logo { font-weight: 900; font-size: 1.4rem; color: #fff; letter-spacing: -1px; }
+        .footer-logo span { font-weight: 400; font-size: 0.95rem; margin-left: 5px; color: rgba(255,255,255,.42); }
+        .footer-links { display: flex; gap: 30px; }
+        .footer-links a { font-size: 0.92rem; color: rgba(255,255,255,.42); text-decoration: none; transition: color .2s; }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom { font-size: 0.9rem; line-height: 1.9; }
+
+        /* ─── ROAD MAP ─── */
+        .roadmap-section { padding: 80px 28px; background: var(--white); }
+        .roadmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .roadmap-card { background: var(--white); border: 1px solid var(--border); border-radius: 22px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.07); }
+        .roadmap-card-head { padding: 22px 30px; display: flex; align-items: center; gap: 14px; }
+        .roadmap-card-head.navy { background: #1A2B44; }
+        .roadmap-card-head.crimson { background: var(--red); }
+        .roadmap-card-head .rh-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; flex-shrink: 0; }
+        .roadmap-card-head .rh-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,.65); text-transform: uppercase; margin-bottom: 3px; }
+        .roadmap-card-head .rh-title { font-size: 1.1rem; font-weight: 800; color: #fff; }
+        .roadmap-flow { padding: 28px 30px; display: flex; align-items: stretch; gap: 0; overflow-x: auto; }
+        .rf-step { display: flex; align-items: center; flex: 1; min-width: 0; }
+        .rf-node { flex: 1; min-width: 0; text-align: center; }
+        .rf-pill { display: inline-block; padding: 7px 14px; border-radius: 100px; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.3px; white-space: nowrap; margin-bottom: 8px; }
+        .rf-pill.semester { background: #E8EFF8; color: #1A2B44; }
+        .rf-pill.vacation  { background: var(--red-light); color: var(--red); }
+        .rf-pill.final    { background: #FFF7E0; color: #8B6A00; }
+        .rf-desc { font-size: 0.82rem; color: var(--soft); line-height: 1.5; font-weight: 500; padding: 0 4px; }
+        .rf-arrow { color: var(--border); font-size: 1.1rem; flex-shrink: 0; margin: 0 2px; padding-bottom: 20px; }
+        .roadmap-note { padding: 0 30px 24px; font-size: 0.88rem; color: var(--soft); display: flex; align-items: center; gap: 8px; }
+        .roadmap-note i { color: var(--gold); }
+
+        /* ─── SCHOOL BADGES ─── */
+        .school-badges { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 22px; margin-top: 22px; border-top: 1px solid var(--border); }
+        .school-badge { background: #F0F0F0; color: #444; font-size: 0.8rem; font-weight: 600; padding: 5px 13px; border-radius: 100px; white-space: nowrap; }
+
+        /* ─── 7주 STEPPER ─── */
+        .stepper-wrap { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
+        .stepper-title { font-size: 0.85rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .stepper-title i { color: var(--red); }
+        .stepper-list { display: flex; flex-direction: column; gap: 0; }
+        .stepper-item { display: flex; gap: 12px; align-items: flex-start; position: relative; }
+        .stepper-item:not(:last-child)::before { content: ''; position: absolute; left: 15px; top: 32px; bottom: -2px; width: 2px; background: var(--border); }
+        .stepper-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--red-light); border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 900; color: var(--red); flex-shrink: 0; margin-top: 2px; z-index: 1; position: relative; }
+        .stepper-content { padding-bottom: 14px; }
+        .stepper-week { font-size: 0.72rem; font-weight: 700; color: var(--red); letter-spacing: 1px; text-transform: uppercase; }
+        .stepper-text { font-size: 0.9rem; color: var(--mid); font-weight: 500; line-height: 1.5; }
+        .stepper-emphasis { margin-top: 14px; padding: 12px 16px; background: var(--red-light); border-left: 3px solid var(--red); border-radius: 0 8px 8px 0; font-size: 0.83rem; color: var(--red); font-weight: 700; line-height: 1.6; }
+
+        /* ─── VACATION HIGHLIGHT ─── */
+        .vacation-highlight { background: var(--red-light); border: 1px solid rgba(139,21,21,.18); border-radius: 12px; padding: 16px 18px; margin-bottom: 22px; font-size: 0.92rem; color: var(--red); font-weight: 700; line-height: 1.7; display: flex; gap: 10px; align-items: flex-start; }
+        .vacation-highlight i { flex-shrink: 0; margin-top: 2px; }
+
+        /* ─── ACCORDION ─── */
+        .accordion-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; padding: 12px 16px; margin-top: 14px; text-align: left; }
+        .accordion-btn:nth-of-type(2) { background: #EFF4FB; border-color: #C8D8EE; }
+        .accordion-btn-inner { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 800; color: var(--dark); }
+        .accordion-btn-inner i.icon { color: var(--red); }
+        .accordion-chevron { font-size: 0.75rem; color: var(--soft); transition: transform .3s; }
+        .accordion-btn.open .accordion-chevron { transform: rotate(180deg); }
+        .accordion-body { overflow: hidden; max-height: 0; transition: max-height .4s ease; }
+        .accordion-body.open { max-height: 2000px; }
+
+        /* ─── SCHOOL TABS ─── */
+        .school-tab-bar { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+        .school-tab { padding: 5px 16px; border-radius: 100px; border: 1.5px solid var(--border); background: var(--white); font-size: 0.82rem; font-weight: 700; color: var(--soft); cursor: pointer; transition: all .2s; }
+        .school-tab.active { background: var(--red); border-color: var(--red); color: #fff; }
+        .school-panel { display: none; }
+        .school-panel.active { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        /* ─── ANIMATION ─── */
+        .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ─── RESPONSIVE ─── */
+        /* ── 태블릿 (≤900px) ── */
+        @media (max-width: 900px) {
+            .dual-grid, .spec-grid, .review-grid, .timetable-grid { grid-template-columns: 1fr; }
+            .roadmap-grid { grid-template-columns: 1fr; }
+            .stat-strip { grid-template-columns: 1fr; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+            .stat-item:last-child { border-bottom: none; }
+            .tab-inner { flex-direction: column; align-items: center; }
+            .tab-btn { max-width: 100%; width: 100%; }
+            .footer-top { flex-direction: column; gap: 24px; }
+            .footer-links { flex-wrap: wrap; gap: 16px; }
+            .result-cta { padding: 48px 28px; }
+            .result-btns { flex-direction: column; align-items: center; }
+            .btn-result-card { max-width: 100%; width: 100%; }
+            .quote-block { padding: 34px 28px; }
+            .track-head, .track-body { padding: 24px 22px; }
+            .roadmap-flow { padding: 20px 16px; gap: 0; }
+            .rf-pill { font-size: 0.72rem; padding: 6px 10px; }
+            .rf-desc { font-size: 0.76rem; }
+        }
+
+        /* ── 모바일 (≤640px) ── */
+        @media (max-width: 640px) {
+            nav { display: none; }
+            .section { padding: 60px 16px; }
+            .nav-inner { padding: 0 16px; }
+            .hero { height: 260px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-label { font-size: 0.72rem; letter-spacing: 3px; }
+
+            /* intro */
+            .intro-headline { font-size: 1.7rem; letter-spacing: -0.5px; }
+            .intro-body { font-size: 1rem; }
+            .intro-badge { font-size: 0.78rem; padding: 8px 18px; }
+
+            /* quote */
+            .quote-block { padding: 28px 20px; }
+            .quote-block p { font-size: 1rem !important; }
+
+            /* stat */
+            .stat-num { font-size: 1.7rem; }
+
+            /* sec titles */
+            .sec-title { font-size: 1.55rem; }
+            .sec-sub { font-size: 0.97rem; }
+            .sub-heading { font-size: 1.05rem; }
+
+            /* dual track */
+            .track-head { padding: 20px 18px; }
+            .track-body { padding: 20px 18px; }
+            .track-head-text h4 { font-size: 1.1rem; }
+            .connector-pill { font-size: 0.85rem; padding: 12px 20px; text-align: center; }
+
+            /* roadmap */
+            .roadmap-card-head { padding: 18px 20px; }
+            .roadmap-flow { padding: 16px 12px; flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .rf-step { flex: none; flex-direction: column; align-items: center; width: calc(50% - 8px); }
+            .rf-arrow { display: none; }
+            .rf-pill { font-size: 0.7rem; padding: 5px 10px; }
+            .rf-desc { font-size: 0.75rem; }
+            .roadmap-note { padding: 0 16px 18px; font-size: 0.82rem; }
+
+            /* table */
+            .tbl-wrap { border-radius: 12px; }
+            table { font-size: 0.88rem; }
+            thead th { padding: 14px 12px; font-size: 0.8rem; }
+            tbody td { padding: 14px 12px; font-size: 0.88rem; }
+            .hours-badge { font-size: 1.1rem; }
+            .grade-badge { font-size: 0.78rem; padding: 5px 12px; }
+            .grade-cell .grade-num { font-size: 1.15rem; }
+
+            /* timetable */
+            .time-card-head { padding: 18px 18px 14px; }
+            .time-card-body { padding: 16px 18px; }
+            .time-val { font-size: 0.88rem; }
+            .time-day { font-size: 0.85rem; }
+
+            /* result CTA */
+            .result-cta { padding: 40px 20px; border-radius: 18px; }
+            .result-cta h2 { font-size: 1.5rem; }
+            .result-cta p { font-size: 0.92rem; }
+            .btn-outline-white, .btn-gold { padding: 14px 22px; font-size: 0.92rem; }
+
+            /* spec */
+            .spec-card { padding: 28px 22px; }
+
+            /* review */
+            .review-card { padding: 26px 22px; }
+
+            /* stepper / accordion */
+            .accordion-btn { padding: 10px 14px; }
+            .accordion-btn-inner { font-size: 0.8rem; }
+            .stepper-text { font-size: 0.85rem; }
+
+            /* footer */
+            .footer-top { padding-bottom: 24px; }
+            .footer-bottom { font-size: 0.82rem; }
+            .footer-logo img { height: 32px !important; }
+            .logo img { height: 36px !important; }
+            footer { padding: 44px 16px 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<header>
+    <div class="nav-inner">
+        <a href="#" class="logo"><img src="uploads/logo-dark.gif" alt="TOPIA어학원" style="height:44px; width:auto; vertical-align:middle;"></a>
+        <nav>
+            <a href="#">TOPIA소개</a>
+            <a href="#" class="active">프로그램안내</a>
+            <a href="#">캠퍼스찾기</a>
+            <a href="#">강사채용</a>
+            <a href="#">로그인</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ── HERO ── -->
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2070&auto=format&fit=crop" alt="고등학생 수업 모습" />
+    <div class="hero-overlay">
+        <p class="hero-label">Program Guide</p>
+        <h1>프로그램 안내</h1>
+    </div>
+</div>
+
+<!-- ── TAB BAR ── -->
+<div class="tab-bar">
+    <div class="tab-inner">
+        <a href="#" class="tab-btn">초등 커리큘럼</a>
+        <a href="#" class="tab-btn">중등 커리큘럼</a>
+        <a href="#" class="tab-btn active">고등 커리큘럼</a>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════
+     INTRO
+══════════════════════════ -->
+<section class="section">
+    <div class="section-inner">
+        <div class="intro-box fade-up">
+            <div class="intro-badge">
+                <i class="fa-solid fa-crown"></i>
+                High-Quality &amp; Intensive
+            </div>
+            <h2 class="intro-headline">
+                최상위권이 선택하고 결과로 증명되는,<br/>
+                <em style="font-size: 51.6px"><img src="uploads/logo-dark.gif" alt="TOPIA어학원" style="height: 45px; width: 330.188px; vertical-align: middle; object-fit: fill"></em> 고등 영어
+            </h2>
+            <p class="intro-body" style="margin: 0px 0px 44px; line-height: 1; font-family: &quot;Apple SD Gothic Neo&quot;">
+                내신으로 다지고 수능으로 결정짓는 완벽한 이원화 로드맵!<br/>
+                지역 내 최고 수준의 학생들이 모여 대입의 마침표를 찍는 엘리트 학습 커뮤니티!<br/>
+                고밀도 수업과 정교한 관리 시스템으로 성적 그 이상의 결과를 만들어냅니다.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+
+        <div style="height: 56px;"></div>
+
+        <!-- KEY STATS -->
+        <div class="stat-strip fade-up">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-ranking-star"></i>
+                </div>
+                <div class="stat-num">1등급</div>
+                <div class="stat-label">최상위권 목표 등급</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="stat-num">40h+</div>
+                <div class="stat-label">학교별 특징을 살린 자체 교재</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div class="stat-num">7단계</div>
+                <div class="stat-label">밀착 내신 관리 프로세스</div>
+            </div>
+        </div>
+
+        <!-- QUOTE -->
+        <div class="quote-block fade-up" style="height: 228px">
+            <p style="font-size: 30px; font-weight: 900; letter-spacing: -0.5px; line-height: 1.6; margin-bottom: 20px; text-align: left; margin: 0px 0px 20px 40px">
+                치열한 환경이, 차원이 다른 결과를 만듭니다.
+            </p>
+            <p style="font-size: 26.2px; padding: 0px 0px 0px 40px; letter-spacing: 0px; line-height: 1.5">
+                검증된 강사진 · 고압축 커리큘럼<br/>
+                <strong>최소 시간으로 1등급 완성!</strong>
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════
+     RESULTS
+══════════════════════════ -->
+<section class="section section-alt" style="padding: 100px 28px 50px">
+    <div class="section-inner">
+        <div class="result-cta fade-up">
+            <h2>우리 학교 1등급,<br/>TOPIA어학원이 만듭니다</h2>
+            <p>매년 최상위권의 압도적인 성적 향상을 명단으로 직접 증명하고 있습니다</p>
+            <div class="result-btns">
+                <a href="https://drive.google.com/file/d/1wzXCbMpOeR7iREBdED_fEfajiB4wVriD/view?usp=sharing" target="_blank" class="btn-result-card">
+                    <img src="https://drive.google.com/thumbnail?id=1wzXCbMpOeR7iREBdED_fEfajiB4wVriD&sz=w400" alt="2024 성적 우수자" onerror="this.style.display='none'">
+                    <span class="btn-result-label">
+                        <i class="fa-regular fa-file-pdf"></i>
+                        2024년 성적 우수자 확인하기
+                    </span>
+                </a>
+                <a href="https://drive.google.com/file/d/12N_pwwHapRpplJTx8jOVFYoTaXmxf235/view?usp=sharing" target="_blank" class="btn-result-card btn-result-card--gold">
+                    <img src="https://drive.google.com/thumbnail?id=12N_pwwHapRpplJTx8jOVFYoTaXmxf235&sz=w400" alt="2025 성적 우수자" onerror="this.style.display='none'">
+                    <span class="btn-result-label">
+                        <i class="fa-regular fa-file-pdf"></i>
+                        2025년 성적 우수자 확인하기
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════
+     DUAL TRACK
+══════════════════════════ -->
+<section class="section section-alt">
+    <div class="section-inner">
+        <div class="sec-header fade-up">
+            <span class="sec-label">Core Strategy</span>
+            <h2 class="sec-title">완벽한 이원화 시스템 (Dual-Track)</h2>
+            <p class="sec-sub">수능 학습은 단순한 시험 대비가 아닌, 내신 심화 문제를 해결하는 '사고의 힘'을 기르는 과정입니다.</p>
+        </div>
+
+        <div class="dual-grid fade-up">
+
+            <!-- 학기 중 -->
+            <div class="track-card">
+                <div class="track-head blue">
+                    <div class="track-icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="track-head-text">
+                        <div class="tag">학기 중 · Semester</div>
+                        <h4>학교별 내신 집중</h4>
+                    </div>
+                </div>
+                <div class="track-body">
+                    <p class="track-motto">
+                        <i class="fa-solid fa-quote-left"></i>우리 학교를 가장 잘 아는 전문가
+                    </p>
+                    <ul class="check-list">
+                        <li>
+                            <span class="ci"><i class="fa-solid fa-check"></i></span>
+                            <span><strong>학교별 전담 반 편성</strong> — 일반고·외고·자사고 등 인근 주요 고교별 출제 경향 완벽 타겟팅</span>
+                        </li>
+                        <li>
+                            <span class="ci"><i class="fa-solid fa-check"></i></span>
+                            <span><strong>자체 제작 'Secret 교재'</strong> — 40시간 이상 투자, 교과서·부교재·모의고사를 100% 분석한 강사 직접 제작 교재</span>
+                        </li>
+                        <li>
+                            <span class="ci"><i class="fa-solid fa-check"></i></span>
+                            <span><strong>7주 완성 밀착 프로세스</strong> — 지문 분석부터 암기, 변형 문제 풀이, 직전 보강까지 이어지는 빈틈없는 관리</span>
+                        </li>
+                    </ul>
+
+                    <!-- 7주 STEPPER ACCORDION -->
+                    <div class="stepper-wrap">
+                        <button class="accordion-btn" onclick="toggleAccordion(this)">
+                            <span class="accordion-btn-inner"><i class="fa-solid fa-stairs icon"></i> 내신 대비 7주 완성 프로세스</span>
+                            <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                        </button>
+                        <div class="accordion-body">
+                            <div style="padding-top:14px;">
+                                <div class="stepper-list">
+                                    <div class="stepper-item"><div class="stepper-dot">1</div><div class="stepper-content"><div class="stepper-week">1주차</div><div class="stepper-text">교과서 진도 및 분석</div></div></div>
+                                    <div class="stepper-item"><div class="stepper-dot">2</div><div class="stepper-content"><div class="stepper-week">2주차</div><div class="stepper-text">부교재 1/2 진도</div></div></div>
+                                    <div class="stepper-item"><div class="stepper-dot">3</div><div class="stepper-content"><div class="stepper-week">3주차</div><div class="stepper-text">부교재 2/2 진도</div></div></div>
+                                    <div class="stepper-item"><div class="stepper-dot">4</div><div class="stepper-content"><div class="stepper-week">4주차</div><div class="stepper-text">모의고사 1/2 진도</div></div></div>
+                                    <div class="stepper-item"><div class="stepper-dot">5</div><div class="stepper-content"><div class="stepper-week">5주차</div><div class="stepper-text">모의고사 2/2 진도</div></div></div>
+                                    <div class="stepper-item"><div class="stepper-dot">6</div><div class="stepper-content"><div class="stepper-week">6주차</div><div class="stepper-text">총정리 + 예상/기출 문제 풀이</div></div></div>
+                                    <div class="stepper-item"><div class="stepper-dot">7</div><div class="stepper-content"><div class="stepper-week">7주차</div><div class="stepper-text">시험 직전 보강 수업</div></div></div>
+                                </div>
+                                <div class="stepper-emphasis">자체 제작 교재에 교과서 / 부교재 / 모의고사가 100% 반영됩니다.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 학교 BADGES ACCORDION -->
+                    <div>
+                        <button class="accordion-btn" style="background:#EFF4FB; border-color:#C8D8EE;" onclick="toggleAccordion(this)">
+                            <span class="accordion-btn-inner"><i class="fa-solid fa-school icon"></i> 학년별 내신 대비 학교</span>
+                            <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                        </button>
+                        <div class="accordion-body">
+                            <div style="padding-top:14px;">
+                                <div class="school-tab-bar">
+                                    <button class="school-tab active" onclick="switchTab(this, 'g1')"><i class="fa-solid fa-graduation-cap" style="font-size:.75rem;"></i> 고1</button>
+                                    <button class="school-tab" onclick="switchTab(this, 'g2')"><i class="fa-solid fa-graduation-cap" style="font-size:.75rem;"></i> 고2</button>
+                                    <button class="school-tab" onclick="switchTab(this, 'g3')"><i class="fa-solid fa-graduation-cap" style="font-size:.75rem;"></i> 고3</button>
+                                </div>
+                                <div id="g1" class="school-panel active">
+                                    <span class="school-badge">#대일외</span><span class="school-badge">#대진고</span><span class="school-badge">#대진여</span><span class="school-badge">#별가람</span><span class="school-badge">#불암고</span><span class="school-badge">#상명고</span><span class="school-badge">#서라벌</span><span class="school-badge">#서울외</span><span class="school-badge">#석관고</span><span class="school-badge">#선덕고</span><span class="school-badge">#송곡고</span><span class="school-badge">#신일고</span><span class="school-badge">#신현고</span><span class="school-badge">#영신여</span><span class="school-badge">#영훈고</span><span class="school-badge">#월계고</span><span class="school-badge">#재현고</span><span class="school-badge">#청원고</span><span class="school-badge">#청원여</span><span class="school-badge">#혜성여</span>
+                                </div>
+                                <div id="g2" class="school-panel">
+                                    <span class="school-badge">#갈매고</span><span class="school-badge">#노원고</span><span class="school-badge">#누원고</span><span class="school-badge">#대진고</span><span class="school-badge">#상명고</span><span class="school-badge">#서라벌</span><span class="school-badge">#서울외</span><span class="school-badge">#송곡여</span><span class="school-badge">#용문고</span><span class="school-badge">#월계고</span><span class="school-badge">#재현고</span><span class="school-badge">#청원고</span><span class="school-badge">#청원여</span><span class="school-badge">#청학고</span><span class="school-badge">#태릉고</span><span class="school-badge">#한삼육고</span>
+                                </div>
+                                <div id="g3" class="school-panel">
+                                    <span class="school-badge">#경희여</span><span class="school-badge">#노원고</span><span class="school-badge">#대일외</span><span class="school-badge">#대진고</span><span class="school-badge">#대진여고</span><span class="school-badge">#불암고</span><span class="school-badge">#상명고</span><span class="school-badge">#서라벌</span><span class="school-badge">#서울외</span><span class="school-badge">#영훈고</span><span class="school-badge">#원묵고</span><span class="school-badge">#재현고</span><span class="school-badge">#청원고</span><span class="school-badge">#청원여고</span><span class="school-badge">#혜성여고</span>
+                                </div>
+                            </div>
+                            <p style="font-size:0.82rem; color:var(--soft); margin-top:14px; line-height:1.7;"><i class="fa-solid fa-circle-info" style="color:var(--gold); margin-right:5px;"></i>이외의 학교는 학원에 별도로 문의해주세요. 내신 대비 학교는 학원 상황에 따라 달라질 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 방학 중 -->
+            <div class="track-card">
+                <div class="track-head red">
+                    <div class="track-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div class="track-head-text">
+                        <div class="tag">방학 중 · Vacation</div>
+                        <h4>수능 심화 &amp; 내신 역전</h4>
+                    </div>
+                </div>
+                <div class="track-body">
+                    <p class="track-motto">
+                        <i class="fa-solid fa-quote-left"></i>수능 학습이 내신 1등급의 열쇠
+                    </p>
+                    <div class="vacation-highlight">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>💡 수시 최저 등급 확보를 위한 단기 집중 고압축 프로그램<br/>(여름/겨울방학 특강 형태로 운영)</span>
+                    </div>
+                    <ul class="check-list">
+                        <li>
+                            <span class="ci"><i class="fa-solid fa-check"></i></span>
+                            <span><strong>수능 최저 등급 확보</strong> — 역대 킬러 문항(빈칸·순서·삽입) 논리 구조 파악으로 안정적 1등급 달성</span>
+                        </li>
+                        <li>
+                            <span class="ci"><i class="fa-solid fa-check"></i></span>
+                            <span><strong>내신 킬러문항 해결력</strong> — 외부 지문과 서술형 변형을 압도하는 탄탄한 문해력 배양</span>
+                        </li>
+                        <li>
+                            <span class="ci"><i class="fa-solid fa-check"></i></span>
+                            <span><strong>초고난도 실전 훈련</strong> — 고3 수준의 하프 모의고사 및 실전 훈련으로 문제 해결 속도·정확성 극대화</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── ROAD MAP ── -->
+        <div class="fade-up" style="margin-top:52px;">
+            <p class="sub-heading"><i class="fa-solid fa-map"></i> 고1~고3 Final Road Map</p>
+            <div class="roadmap-grid">
+                <!-- 고1~고2 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-card-head navy">
+                        <div class="rh-icon"><i class="fa-solid fa-road"></i></div>
+                        <div><div class="rh-label">Grade 1 · 2</div><div class="rh-title">고1 ~ 고2 연간 로드맵</div></div>
+                    </div>
+                    <div class="roadmap-flow">
+                        <div class="rf-step">
+                            <div class="rf-node">
+                                <div class="rf-pill semester">1학기</div>
+                                <div class="rf-desc">학교별<br/>내신대비</div>
+                            </div>
+                            <div class="rf-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+                        <div class="rf-step">
+                            <div class="rf-node">
+                                <div class="rf-pill vacation">여름방학</div>
+                                <div class="rf-desc">레벨별<br/>수능대비</div>
+                            </div>
+                            <div class="rf-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+                        <div class="rf-step">
+                            <div class="rf-node">
+                                <div class="rf-pill semester">2학기</div>
+                                <div class="rf-desc">학교별<br/>내신대비</div>
+                            </div>
+                            <div class="rf-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+                        <div class="rf-step">
+                            <div class="rf-node">
+                                <div class="rf-pill vacation">겨울방학</div>
+                                <div class="rf-desc">레벨별<br/>수능대비</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-note"><i class="fa-solid fa-circle-info"></i> 학기 중 내신 + 방학 수능의 이원화 사이클 반복</div>
+                </div>
+                <!-- 고3 -->
+                <div class="roadmap-card">
+                    <div class="roadmap-card-head crimson">
+                        <div class="rh-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                        <div><div class="rh-label">Grade 3</div><div class="rh-title">고3 Final 로드맵</div></div>
+                    </div>
+                    <div class="roadmap-flow">
+                        <div class="rf-step">
+                            <div class="rf-node">
+                                <div class="rf-pill semester">1학기</div>
+                                <div class="rf-desc">고3<br/>내신대비</div>
+                            </div>
+                            <div class="rf-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+                        <div class="rf-step" style="flex:1.4;">
+                            <div class="rf-node">
+                                <div class="rf-pill final">여름/겨울방학</div>
+                                <div class="rf-desc">수능 Final<br/><span style="font-size:0.78rem;color:var(--red);font-weight:700;">수능 최저 및 정시 집중</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-note"><i class="fa-solid fa-circle-info"></i> 수시 최저 등급 확보 + 정시 집중 고압축 특강</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dual-connector fade-up" style="margin-top:32px;">
+            <div class="connector-pill">
+                <i class="fa-solid fa-rotate"></i>
+                학기 중 내신 + 방학 수능 → 대입 완성 시너지
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════
+     LEVEL & SCHEDULE
+══════════════════════════ -->
+<section class="section">
+    <div class="section-inner">
+        <div class="sec-header fade-up">
+            <span class="sec-label">Curriculum &amp; Schedule</span>
+            <h2 class="sec-title">학년별 레벨 체계 및 시간표</h2>
+            <p class="sec-sub">최상위권 학생들의 목표에 맞춘 프리미엄 레벨링과 고효율 시간표</p>
+        </div>
+
+        <p class="sub-heading fade-up">
+            <i class="fa-solid fa-layer-group"></i> 학년별 레벨 및 시수
+        </p>
+        <div class="tbl-wrap fade-up" style="margin-bottom: 64px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:20%;">구분</th>
+                        <th style="width:20%;">레벨 (Level)</th>
+                        <th style="width:13%;">주당 시수</th>
+                        <th>영역별 수업 구성</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left"><div class="grade-cell"><span class="grade-num">고1</span><span class="grade-class" style="font-size: 15.6px">수능 Core반</span></div></td>
+                        <td><span class="grade-badge"><i class="fa-solid fa-graduation-cap"></i> Summa 1~4</span></td>
+                        <td><span class="hours-badge">4T</span></td>
+                        <td>
+                            수능RC 2T + 수능GR 2T
+                            <span class="sub-note"><i class="fa-regular fa-clock" style="color:var(--gold); margin-right:5px;"></i>매주 어휘 Test 실시 (400개)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left"><div class="grade-cell"><span class="grade-num">고2</span><span class="grade-class" style="font-size: 15px">수능 Advanced반</span></div></td>
+                        <td><span class="grade-badge"><i class="fa-solid fa-graduation-cap"></i> Summa 2~4</span></td>
+                        <td><span class="hours-badge">4T</span></td>
+                        <td>
+                            수능RC 2T + 수능GR 1T + Half 모고 1T
+                            <span class="sub-note"><i class="fa-regular fa-clock" style="color:var(--gold); margin-right:5px;"></i>매주 어휘 Test 실시 (400개)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left"><div class="grade-cell"><span class="grade-num" style="text-align: left">고3</span><span class="grade-class" style="font-size: 15.6px">수능 Final반</span></div></td>
+                        <td><span class="grade-badge"><i class="fa-solid fa-graduation-cap"></i> Final반</span></td>
+                        <td><span class="hours-badge">3T</span></td>
+                        <td>
+                            수능 고난도 문항 2T + Half 모고 1T
+                            <span class="sub-note"><i class="fa-regular fa-clock" style="color:var(--gold); margin-right:5px;"></i>매주 일정 분량 단어 암기 및 Test</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="sub-heading fade-up">
+            <i class="fa-solid fa-clock"></i> 학년별 시간표 구성
+        </p>
+        <div class="timetable-grid fade-up">
+            <div class="time-card">
+                <div class="time-card-head">
+                    <div class="grade-label" style="margin: 0px 0px 6px; height: 21.8438px">고1</div>
+                    <h4>수능 Core반</h4>
+                </div>
+                <div class="time-card-body">
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-regular fa-calendar"></i> 요일 (택 1)</span>
+                        <span class="time-val">토요일 or 일요일</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-regular fa-sun"></i> 오전반 (1부)</span>
+                        <span class="time-val">09:00 ~ 13:00</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-solid fa-cloud-sun"></i> 오후반 (2부)</span>
+                        <span class="time-val">13:00 ~ 17:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-card-head">
+                    <div class="grade-label">고2</div>
+                    <h4>수능 Advanced반</h4>
+                </div>
+                <div class="time-card-body">
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-regular fa-calendar"></i> 요일 (택 1)</span>
+                        <span class="time-val">토요일 or 일요일</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-regular fa-sun"></i> 오전반 (1부)</span>
+                        <span class="time-val">09:00 ~ 13:00</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-solid fa-cloud-sun"></i> 오후반 (2부)</span>
+                        <span class="time-val">13:00 ~ 17:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-card-head">
+                    <div class="grade-label">고3</div>
+                    <h4>수능 Final반</h4>
+                </div>
+                <div class="time-card-body">
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-regular fa-calendar"></i> 요일</span>
+                        <span class="time-val">토요일</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-regular fa-sun"></i> 오전반 (1부)</span>
+                        <span class="time-val">09:00 ~ 12:00</span>
+                    </div>
+                    <div class="time-row">
+                        <span class="time-day"><i class="fa-solid fa-cloud-sun"></i> 오후반</span>
+                        <span class="time-val" style="color:var(--soft);">— 해당 없음</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box fade-up">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>정규 수업 이후 <strong>DT(단어) 재시험</strong> 및 학생 개별 <strong>1:1 Q&amp;A</strong>를 진행합니다.
+            토·일 수업은 일정 변경이 있는 경우 미리 담임선생님에게 알린 후 대체 등원이 가능합니다.</span>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- ══════════════════════════
+     SPECIALTY
+══════════════════════════ -->
+<section class="section">
+    <div class="section-inner">
+        <div class="sec-header fade-up">
+            <span class="sec-label">TOPIA Specialty</span>
+            <h2 class="sec-title">TOPIA어학원만의 독보적 경쟁력</h2>
+            <p class="sec-sub">타 학원이 흉내 낼 수 없는 깊이 있는 콘텐츠와 세밀한 관리</p>
+        </div>
+
+        <div class="spec-grid fade-up">
+            <div class="spec-card">
+                <div class="spec-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                <h3>통섭(Consilience) 수업</h3>
+                <p>단순 해석을 넘어 〈총·균·쇠〉 등 고전 비문학 지문과 수능 기출을 연결합니다. 배경지식 확장과 인문·과학을 넘나드는 고차원적 추론 능력을 배양하여 최상위권의 지적 호기심을 충족시킵니다.</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <h3>고등 전문 프로 강사진</h3>
+                <p>다년간의 수능 및 외고·자사고·주요 일반고 내신 경력을 가진 고등 전문 강사진이 포진해 있습니다. 단순 암기가 아닌 '분석과 예측'으로 실제 점수를 만들어내는 수준 높은 강의를 제공합니다.</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>데이터 기반 스마트 케어</h3>
+                <p>학기별 수능형 모의고사 Progress Test를 통해 과학적인 성적 분석 리포트를 제공합니다. 매주 학습 이행도와 테스트 결과를 SMS로 학부모님께 투명하게 공유합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════
+     REVIEWS
+══════════════════════════ -->
+<section class="section section-alt">
+    <div class="section-inner">
+        <div class="sec-header fade-up">
+            <span class="sec-label">Real Stories</span>
+            <h2 class="sec-title">선배들과 학부모님이 증명하는 TOPIA</h2>
+            <p class="sec-sub">결과로 보여주는 TOPIA 고등부의 리얼한 후기를 만나보세요</p>
+        </div>
+
+        <div class="review-grid fade-up">
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>"3등급에서 당당히 1등급 역전!"</h4>
+                <p>"고1 첫 중간고사에서 생각지도 못한 3등급을 받고 막막했어요. 하지만 TOPIA 방학 수능반에서 선생님들과 논리독해를 맹훈련한 뒤 2학기 기말고사에서 당당히 1등급을 받았습니다. 지문을 꿰뚫어 보는 눈을 길러준 곳입니다."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background:var(--red);">김</div>
+                    <div>
+                        <div class="reviewer-name">대일외고 2학년 김○윤</div>
+                        <div class="reviewer-role">내신/수능 1등급 달성</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>"킬러 문항도 거뜬한 자체 교재"</h4>
+                <p>"선생님들의 열정과 전문성은 주변 학원 중 최고입니다. 학교별 출제 경향을 완벽하게 분석한 'Secret 워크북' 덕분에 외부 지문 변형 문제도 거뜬하게 풀어낼 수 있었어요. 언제나 질문에 친절하게 답해주시는 밀착 클리닉도 너무 좋았습니다."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background:#1A2B44;">이</div>
+                    <div>
+                        <div class="reviewer-name">선덕고 1학년 이○환</div>
+                        <div class="reviewer-role">영어 전교 최상위권</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>"대입을 위한 최고의 선택"</h4>
+                <p>"대치동 유명 학원도 다녀봤지만, TOPIA 고등부의 이원화 시스템과 통섭 수업은 차원이 다릅니다. 방학 때 수능을 잡아주니 학기 중 내신 심화 문제까지 아이가 스스로 해결하더라고요."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background:var(--gold); color:#1C1C1C;">
+                        <i class="fa-solid fa-user" style="font-size:.88rem;"></i>
+                    </div>
+                    <div>
+                        <div class="reviewer-name">재현고 2학년 박○우 학부모님</div>
+                        <div class="reviewer-role">학부모 수강 후기</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-logo"><img src="uploads/logo-white.gif" alt="TOPIA어학원" style="height:40px; width:auto; vertical-align:middle;"></div>
+            <div class="footer-links">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">찾아오시는 길</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>서울특별시 노원구 중계로 225 &nbsp;|&nbsp; 대표전화: 02-3392-0015</p>
+            <p style="margin-top:5px;">&copy; 2026 TOPIA English Zone. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleAccordion(btn) {
+        btn.classList.toggle('open');
+        const body = btn.nextElementSibling;
+        body.classList.toggle('open');
+    }
+
+    function switchTab(btn, panelId) {
+        const container = btn.closest('.accordion-body');
+        container.querySelectorAll('.school-tab').forEach(t => t.classList.remove('active'));
+        container.querySelectorAll('.school-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        container.querySelector('#' + panelId).classList.add('active');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
